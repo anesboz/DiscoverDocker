@@ -2,7 +2,7 @@
 
 docker-compose up --build
 
-# Publish
+# Publish  x
 
 docker tag tp1-httpd anesboz/tp1-httpd:1.0
 docker push anesboz/tp1-httpd:1.0
