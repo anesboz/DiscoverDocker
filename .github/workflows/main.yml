@@ -7,7 +7,7 @@ on:
 
 defaults:
   run:
-    working-directory: ./api/simple-api
+    working-directory: ./api/simple-api-student
 
 jobs:
   test-backend:
@@ -47,19 +47,19 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: ./db
-          tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops/db
+          tags: ${{secrets.DOCKERHUB_USERNAME}}/db
           push: ${{ github.ref == 'refs/heads/master' }}
 
       - name: Build image and push backend
         uses: docker/build-push-action@v3
         with:
           context: ./api/simple-api
-          tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops/simple-api
+          tags: ${{secrets.DOCKERHUB_USERNAME}}/simple-api
           push: ${{ github.ref == 'refs/heads/master' }}
 
       - name: Build image and push httpd
         uses: docker/build-push-action@v3
         with:
           context: ./http
-          tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops/http
+          tags: ${{secrets.DOCKERHUB_USERNAME}}/http
           push: ${{ github.ref == 'refs/heads/master' }}
