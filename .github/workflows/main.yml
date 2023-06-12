@@ -48,18 +48,18 @@ jobs:
         with:
           context: ./db
           tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops/db
-          push: ${{ github.ref == 'refs/heads/main' }}
+          push: ${{ github.ref == 'refs/heads/master' }}
 
       - name: Build image and push backend
         uses: docker/build-push-action@v3
         with:
           context: ./api/simple-api
           tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops/simple-api
-          push: ${{ github.ref == 'refs/heads/main' }}
+          push: ${{ github.ref == 'refs/heads/master' }}
 
       - name: Build image and push httpd
         uses: docker/build-push-action@v3
         with:
           context: ./http
           tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops/http
-          push: ${{ github.ref == 'refs/heads/main' }}
+          push: ${{ github.ref == 'refs/heads/master' }}
