@@ -45,7 +45,7 @@ jobs:
       - name: Build image and push database
         uses: docker/build-push-action@v3
         with:
-          context: ./api/db
+          context: ./db
           tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops/db
 
       - name: Build image and push backend
@@ -57,6 +57,6 @@ jobs:
       - name: Build image and push httpd
         uses: docker/build-push-action@v3
         with:
-          context: ./api/http
+          context: ./http
           tags: ${{secrets.DOCKERHUB_USERNAME}}/tp-devops/http
           push: ${{ github.ref == 'refs/heads/main' }}
