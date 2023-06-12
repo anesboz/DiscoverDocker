@@ -24,7 +24,7 @@ jobs:
           java-version: "17"
           cache: "maven"
 
-      #finally build your app with the latest command
+      #finally build your app with the latest command master
       - name: Build and test with Maven
         # run: mvn clean verify
         run: mvn -B verify sonar:sonar -Dsonar.projectKey=anesboz_DiscoverDocker -Dsonar.organization=anesboz -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}
